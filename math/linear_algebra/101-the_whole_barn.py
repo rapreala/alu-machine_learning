@@ -1,11 +1,22 @@
 #!/usr/bin/env python3
-"""Defines `add_matrices`."""
-import numpy as np
+""" defines function that adds two matrices """
+
+
+def matrix_shape(matrix):
+    """ returns list of integers representing dimensions of given matrix """
+
+    matrix_shape = []
+    while type(matrix) is list:
+        matrix_shape.append(len(matrix))
+        matrix = matrix[0]
+    return matrix_shape
 
 
 def add_matrices(mat1, mat2):
-    """Adds two matrices."""
-    mat1, mat2 = np.array(mat1), np.array(mat2)
-    if not mat1.shape == mat2.shape:
+    """ returns new matrix that is sum of two matrices added element-wise """
+
+    if matrix_shape(mat1) != matrix_shape(mat2):
         return None
-    return mat1 + mat2
+    if len(matrix_shape(mat1)) is 1:
+        return [mat1[i] + mat2[i] for i in range(len(mat1))]
+    return [add_matrices(mat1[i], mat2[i]) for i in range(len(mat1))]
