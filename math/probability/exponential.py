@@ -60,3 +60,20 @@ class Exponential:
         # PDF formula using manual exponentiation
         pdf_value = self.lambtha * (e ** (-self.lambtha * x))
         return pdf_value
+
+    def cdf(self, x):
+        """Calculates the value of the CDF for a given time period.
+
+        Args:
+            x (float): The time period.
+
+        Returns:
+            float: The CDF value for x.
+        """
+
+        if x < 0:
+            return 0  # CDF is 0 for negative values of x
+
+        # CDF formula for exponential distribution
+        cdf_value = 1 - e ** (-self.lambtha * x)
+        return cdf_value
