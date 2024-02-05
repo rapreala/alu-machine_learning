@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 
+"""Represents a Poisson distribution."""
+import numpy as np
 class Poisson:
     """Represents a Poisson distribution."""
 
@@ -10,7 +12,7 @@ class Poisson:
         Args:
             data (list): A list of data to
             estimate the distribution.
-            lambtha (float): The expected number 
+            lambtha (float): The expected number
             of occurrences in a given time frame.
 
         Raises:
@@ -27,9 +29,9 @@ class Poisson:
                 raise TypeError("data must be a list")
             if len(data) < 2:
                 raise ValueError("data must contain multiple values")
-            self.lambtha = self._calculate_lambtha(data)  # Calculate lambtha from data
-
+            # Calculate lambtha from data
+            self.lambtha = self._calculate_lambtha(data)  
     def _calculate_lambtha(self, data):
         """Calculates the lambtha value from the given data."""
-        lambtha_value = sum(data) / len(data)  # Replace with your actual calculation
+        lambtha_value = sum(data) / len(data) 
         return lambtha_value
