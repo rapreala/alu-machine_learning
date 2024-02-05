@@ -74,6 +74,7 @@ class Exponential:
         if x < 0:
             return 0  # CDF is 0 for negative values of x
 
+        e = 2.7182818285  # Approximate value of e
         # CDF formula for exponential distribution
         cdf_value = 1 - e ** (-self.lambtha * x)
         return cdf_value
