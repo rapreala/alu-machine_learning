@@ -37,5 +37,8 @@ class Exponential:
 
     def _calculate_lambtha(self, data):
         """Calculates the lambtha value from the given data."""
-        lambtha_value = 1 / np.mean(data)
+        total = sum(data)  # Calculate the sum of the data manually
+        count = len(data)  # Calculate the number of data points
+        # Estimate lambtha using the formula for mean
+        lambtha_value = count / total
         return lambtha_value
