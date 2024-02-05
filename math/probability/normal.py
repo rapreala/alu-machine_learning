@@ -81,3 +81,24 @@ class Normal:
         # Calculate the PDF using the formula
         pdf_value = (1 / (self.stddev * (2 * pi) ** 0.5)) * e ** (-0.5 * z**2)
         return pdf_value
+
+    def cdf(self, x):
+        """Calculates the value of the CDF for a given x-value.
+
+        Args:
+            x (float): The x-value.
+
+        Returns:
+            float: The CDF value for x.
+        """
+
+        # Approximate the CDF using numerical integration of the PDF
+        dx = 0.001  # Step size for integration
+        cdf_value = 0
+        # Integrate from -3.5 stddev to x
+        for i in range(int(-35 * self.stddev), int(x / dx)):
+            xi = i * dx
+            pdf_value = self.pdf(xi)
+            cdf_value += pdf_value * dx
+
+        return cdf_value
