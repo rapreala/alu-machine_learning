@@ -42,3 +42,20 @@ class Exponential:
         # Estimate lambtha using the formula for mean
         lambtha_value = count / total
         return lambtha_value
+
+    def pdf(self, x):
+        """Calculates the value of the PDF for a given time period.
+
+        Args:
+            x (float): The time period.
+
+        Returns:
+            float: The PDF value for x.
+        """
+
+        if x < 0:
+            return 0  # PDF is 0 for negative values of x
+
+         # PDF formula for exponential distribution
+        pdf_value = self.lambtha * math.exp(-self.lambtha * x)
+        return pdf_value
