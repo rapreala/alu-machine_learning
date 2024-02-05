@@ -56,6 +56,7 @@ class Exponential:
         if x < 0:
             return 0  # PDF is 0 for negative values of x
 
-         # PDF formula for exponential distribution
-        pdf_value = self.lambtha * math.exp(-self.lambtha * x)
+        e = 2.7182818285  # Approximate value of e
+        # PDF formula using manual exponentiation
+        pdf_value = self.lambtha * (e ** (-self.lambtha * x))
         return pdf_value
