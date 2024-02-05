@@ -36,5 +36,5 @@ class Poisson:
 
     def _calculate_lambtha(self, data):
         """Calculates the lambtha value from the given data."""
-        lambtha_value = sum(data) / len(data) 
+        lambtha_value = sum(data) / len(data)
         return lambtha_value
