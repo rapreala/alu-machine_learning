@@ -83,22 +83,21 @@ class Normal:
         return pdf_value
 
     def cdf(self, x):
-        """Calculates the value of the CDF for a given x-value.
-
-        Args:
-            x (float): The x-value.
-
-        Returns:
-            float: The CDF value for x.
         """
+        calculates the value of the CDF for a given x-value
 
-        # Approximate the CDF using numerical integration of the PDF
-        dx = 0.0001  # Adjust step size for better precision
-        cdf_value = 0
-        # Integrate from negative infinity to x (using a large negative value)
-        for i in range(int(-1000 * self.stddev), int(x / dx)):
-            xi = i * dx
-            pdf_value = self.pdf(xi)
-            cdf_value += pdf_value * dx
+        parameters:
+            x: x-value
 
-        return cdf_value
+        return:
+            the CDF value for x
+        """
+        mean = self.mean
+        stddev = self.stddev
+        pi = 3.1415926536
+        value = (x - mean) / (stddev * (2 ** (1 / 2)))
+        erf = value - ((value ** 3) / 3) + ((value ** 5) / 10)
+        erf = erf - ((value ** 7) / 42) + ((value ** 9) / 216)
+        erf *= (2 / (pi ** (1 / 2)))
+        cdf = (1 / 2) * (1 + erf)
+        return cdf
