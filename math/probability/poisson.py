@@ -2,6 +2,8 @@
 
 
 """Represents a Poisson distribution."""
+
+
 class Poisson:
     """Represents a Poisson distribution."""
 
@@ -28,8 +30,9 @@ class Poisson:
                 raise TypeError("data must be a list")
             if len(data) < 2:
                 raise ValueError("data must contain multiple values")
+
             # Calculate lambtha from data
-            self.lambtha = self._calculate_lambtha(data)  
+            self.lambtha = self._calculate_lambtha(data)
     def _calculate_lambtha(self, data):
         """Calculates the lambtha value from the given data."""
         lambtha_value = sum(data) / len(data) 
