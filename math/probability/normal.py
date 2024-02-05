@@ -93,7 +93,7 @@ class Normal:
         """
 
         # Approximate the CDF using numerical integration of the PDF
-        dx = 0.001  # Step size for integration
+        dx = 0.1  # Step size for integration
         cdf_value = 0
         # Integrate from -3.5 stddev to x
         for i in range(int(-35 * self.stddev), int(x / dx)):
