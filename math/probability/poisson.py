@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+
 class Poisson:
     """Represents a Poisson distribution."""
 
@@ -7,8 +8,10 @@ class Poisson:
         """Initializes the Poisson distribution.
 
         Args:
-            data (list): A list of data to estimate the distribution.
-            lambtha (float): The expected number of occurrences in a given time frame.
+            data (list): A list of data to
+            estimate the distribution.
+            lambtha (float): The expected number 
+            of occurrences in a given time frame.
 
         Raises:
             ValueError: If lambtha is not positive or data is invalid.
@@ -28,6 +31,5 @@ class Poisson:
 
     def _calculate_lambtha(self, data):
         """Calculates the lambtha value from the given data."""
-        # Implement your calculation logic here
-        # Ensure the returned value is a float
-        return lambtha_value  # Replace with your calculated lambtha
+        lambtha_value = sum(data) / len(data)  # Replace with your actual calculation
+        return lambtha_value
