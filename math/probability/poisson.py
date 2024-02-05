@@ -2,7 +2,6 @@
 
 
 """Represents a Poisson distribution."""
-import numpy as np
 class Poisson:
     """Represents a Poisson distribution."""
 
