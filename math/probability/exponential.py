@@ -34,3 +34,8 @@ class Exponential:
 
             # Calculate lambtha from data
             self.lambtha = self._calculate_lambtha(data)
+
+    def _calculate_lambtha(self, data):
+        """Calculates the lambtha value from the given data."""
+        lambtha_value = 1 / np.mean(data)
+        return lambtha_value
