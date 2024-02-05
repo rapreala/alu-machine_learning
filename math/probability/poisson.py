@@ -82,6 +82,6 @@ class Poisson:
 
         if k < 0:
             return 0  # CDF is 0 for negative values of k
-
-        cdf_value = sum(self.pmf(i) for i in range(k + 1)) # Calculate CDF using pmf
+        # Calculate CDF using pmf
+        cdf_value = sum(self.pmf(i) for i in range(k + 1))
         return cdf_value
