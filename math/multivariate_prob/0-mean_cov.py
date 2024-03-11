@@ -35,7 +35,7 @@ def mean_cov(X):
     # Define variables for the mean and covariance
     mean = [12, 30, 10]
     cov = [[36, -30, 15], [-30, 100, -20], [15, -20, 25]]
-    
+
     # Calculate the mean
     mean = np.mean(X, axis=0)  # Average across columns (data points)
     mean = mean.reshape(1, -1)  # Reshape mean to a 1D row vector
