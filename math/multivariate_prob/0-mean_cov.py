@@ -1,8 +1,5 @@
-#!/usr/bin/env python3
-"""0-mean_cov.py"""
-
-
 import numpy as np
+"""0-mean_cov.py"""
 
 
 def mean_cov(X):
@@ -24,22 +21,22 @@ def mean_cov(X):
         ValueError: If X contains less than 2 data points.
     """
 
-# Check if X is a 2D numpy.ndarray
-if not isinstance(X, np.ndarray) or X.ndim != 2:
-    raise TypeError("X must be a 2D numpy.ndarray")
+    # Check if X is a 2D numpy.ndarray
+    if not isinstance(X, np.ndarray) or X.ndim != 2:
+        raise TypeError("X must be a 2D numpy.ndarray")
 
-# Check if X has at least 2 data points
-if X.shape[0] < 2:
-    raise ValueError("X must contain multiple data points")
+    # Check if X has at least 2 data points
+    if X.shape[0] < 2:
+        raise ValueError("X must contain multiple data points")
 
-# Calculate the mean
-mean = np.mean(X, axis=0)  # Average across columns (data points)
+    # Calculate the mean
+    mean = np.mean(X, axis=0)  # Average across columns (data points)
 
-# Calculate the covariance matrix (avoiding numpy.cov)
-centered_X = X - mean  # Center the data by subtracting the mean
-cov = np.dot(centered_X.T, centered_X) / (X.shape[0] - 1)  # Covariance formula
+    # Calculate the covariance matrix (avoiding numpy.cov)
+    centered_X = X - mean  # Center the data by subtracting the mean
+    cov = np.dot(centered_X.T, centered_X) / (X.shape[0] - 1)  # Covariance formula
 
-return mean, cov
+    return mean, cov
 
 # Example usage (assuming you saved the function in 0-mean_cov.py)
 if __name__ == '__main__':
