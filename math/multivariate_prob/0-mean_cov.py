@@ -1,6 +1,8 @@
-import numpy as np
+#!/usr/bin/env python3
 """0-mean_cov.py"""
 
+
+import numpy as np
 
 def mean_cov(X):
     """
