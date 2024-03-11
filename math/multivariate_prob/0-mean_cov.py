@@ -37,9 +37,12 @@ def mean_cov(X):
 
     # Calculate the covariance matrix (avoiding numpy.cov)
     centered_X = X - mean  # Center the data by subtracting the mean
-    cov = np.dot(centered_X.T, centered_X) / (X.shape[0] - 1)  # Covariance formula
+    
+    # Covariance formula
+    cov = np.dot(centered_X.T, centered_X) / (X.shape[0] - 1)
 
     return mean, cov
+
 
 # Example usage (assuming you saved the function in 0-mean_cov.py)
 if __name__ == '__main__':
