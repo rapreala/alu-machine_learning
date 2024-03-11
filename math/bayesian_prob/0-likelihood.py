@@ -29,8 +29,9 @@ def likelihood(x, n, P):
     # Validate input types and values
     if not isinstance(n, int) or n <= 0:
         raise ValueError("n must be a positive integer")
+    error = "x must be an integer that is greater than or equal to 0"
     if not isinstance(x, int) or x < 0:
-        raise ValueError("x must be an integer that is greater than or equal to 0")
+        raise ValueError(error)
     if x > n:
         raise ValueError("x cannot be greater than n")
     if not isinstance(P, np.ndarray) or len(P.shape) != 1:
@@ -39,7 +40,8 @@ def likelihood(x, n, P):
         raise ValueError("All values in P must be in the range [0, 1]")
 
     # Calculate binomial coefficient (n choose x)
-    coeff = np.math.factorial(n) / (np.math.factorial(x) * np.math.factorial(n - x))
+    c = np.math.factorial(n)
+    coeff = c / (np.math.factorial(x) * np.math.factorial(n - x))
 
     # Calculate likelihood for each probability in P
     likelihood_values = coeff * (P**x) * ((1 - P)**(n - x))
