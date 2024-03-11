@@ -4,6 +4,7 @@
 
 import numpy as np
 
+
 def mean_cov(X):
     """
     Calculates the mean and covariance of a data set.
@@ -37,7 +38,7 @@ def mean_cov(X):
 
     # Calculate the covariance matrix (avoiding numpy.cov)
     centered_X = X - mean  # Center the data by subtracting the mean
-    
+
     # Covariance formula
     cov = np.dot(centered_X.T, centered_X) / (X.shape[0] - 1)
 
@@ -46,11 +47,11 @@ def mean_cov(X):
 
 # Example usage (assuming you saved the function in 0-mean_cov.py)
 if __name__ == '__main__':
-  import numpy as np
-  mean_cov = __import__('0-mean_cov').mean_cov
+    import numpy as np
+    mean_cov = __import__('0-mean_cov').mean_cov
 
-  np.random.seed(0)
-  X = np.random.multivariate_normal([12, 30, 10], [[36, -30, 15], [-30, 100, -20], [15, -20, 25]], 10000)
-  mean, cov = mean_cov(X)
-  print(mean)
-  print(cov)
+    np.random.seed(0)
+    X = np.random.multivariate_normal([12, 30, 10], [[36, -30, 15], [-30, 100, -20], [15, -20, 25]], 10000)
+    mean, cov = mean_cov(X)
+    print(mean)
+    print(cov)
