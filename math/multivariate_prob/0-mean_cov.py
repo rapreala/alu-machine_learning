@@ -33,6 +33,7 @@ def mean_cov(X):
 
     # Calculate the mean
     mean = np.mean(X, axis=0)  # Average across columns (data points)
+    mean = mean.reshape(1, -1)  # Reshape mean to a 1D row vector
 
     # Calculate the covariance matrix (avoiding numpy.cov)
     centered_X = X - mean  # Center the data by subtracting the mean
