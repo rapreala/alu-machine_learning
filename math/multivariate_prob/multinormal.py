@@ -42,7 +42,7 @@ class MultiNormal:
 
         # Calculate unbiased covariance matrix
         centered_data = data - mean
-        cov = np.matmul(centered_data, centered_data.T) / (num_data_points - 1)
+        cov = np.matmul(data - mean, data.T - mean.T) / (n - 1)
 
         self.mean = mean
         self.cov = cov
