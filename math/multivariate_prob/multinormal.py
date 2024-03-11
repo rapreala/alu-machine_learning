@@ -6,6 +6,8 @@
 
 
 import numpy as np
+import sys  # Import for printing to standard error
+
 
 
 class MultiNormal:
@@ -28,8 +30,9 @@ class MultiNormal:
         if not isinstance(data, np.ndarray) or len(data.shape) != 2:
             raise TypeError("data must be a 2D numpy.ndarray")
 
-        n, d = data.shape
-        if n < 2:
+        num_data_points, num_features = data.shape
+        if num_data_points < 2:
+            print("data must contain multiple data points", file=sys.stderr)  # Print to stderr
             raise ValueError("data must contain multiple data points")
 
         self.data = data
