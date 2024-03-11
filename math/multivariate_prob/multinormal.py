@@ -9,7 +9,6 @@ import numpy as np
 import sys  # Import for printing to standard error
 
 
-
 class MultiNormal:
     """
     Represents a Multivariate Normal distribution.
