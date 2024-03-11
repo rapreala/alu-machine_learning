@@ -34,8 +34,8 @@ def correlation(C):
     # Expand std_dev to a 2D square matrix for element-wise division
     std_dev_mat = np.expand_dims(std_dev, axis=1) * np.expand_dims(std_dev, axis=0)
 
-    # Avoid division by zero (replace diagonals with 1s)
-    std_dev_mat[np.diag_indices(std_dev_mat.shape[0])] = 1
+    # Avoid division by zero (replace diagonals with 1e-8)
+    std_dev_mat[np.diag_indices(std_dev_mat.shape[0])] = 1e-8
 
     # Correlation matrix (covariance divided by element-wise standard deviations)
     correlation_matrix = C / std_dev_mat
