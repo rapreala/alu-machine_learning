@@ -27,22 +27,15 @@ class MultiNormal:
             ValueError: If data contains less than 2 data points.
         """
 
-        if not isinstance(data, np.ndarray) or len(data.shape) != 2:
+        if type(data) is not np.ndarray or len(data.shape) != 2:
             raise TypeError("data must be a 2D numpy.ndarray")
 
-        num_data_points, num_features = data.shape
-        if num_data_points < 2:
-            print("data must contain multiple data points", file=sys.stderr)  # Print to stderr
+        d, n = data.shape
+        if n < 2:
             raise ValueError("data must contain multiple data points")
 
         self.data = data
-
-        # Calculate mean vector
         mean = np.mean(data, axis=1, keepdims=True)
-
-        # Calculate unbiased covariance matrix
-        centered_data = data - mean
-        cov = np.matmul(data - mean, data.T - mean.T) / (n - 1)
-
         self.mean = mean
+        cov = np.matmul(data - mean, data.T - mean.T) / (n - 1)
         self.cov = cov
