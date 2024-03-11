@@ -32,6 +32,10 @@ def mean_cov(X):
     if X.shape[0] < 2:
         raise ValueError("X must contain multiple data points")
 
+    # Define variables for the mean and covariance
+    mean = [12, 30, 10]
+    cov = [[36, -30, 15], [-30, 100, -20], [15, -20, 25]]
+    
     # Calculate the mean
     mean = np.mean(X, axis=0)  # Average across columns (data points)
     mean = mean.reshape(1, -1)  # Reshape mean to a 1D row vector
@@ -51,7 +55,10 @@ if __name__ == '__main__':
     mean_cov = __import__('0-mean_cov').mean_cov
 
     np.random.seed(0)
-    X = np.random.multivariate_normal([12, 30, 10], [[36, -30, 15], [-30, 100, -20], [15, -20, 25]], 10000)
+
+    # Generate data using the defined variables
+    X = np.random.multivariate_normal(mean, cov, 10000)
+
     mean, cov = mean_cov(X)
     print(mean)
     print(cov)
